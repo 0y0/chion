@@ -102,8 +102,13 @@ function asyncFetchWP(items, link) {
     .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
     .then(data => {
       data.querySelectorAll("item").forEach(i => {
-        var image = i.getElementsByTagName("media:thumbnail")[0]?.getAttribute("url");
         var pubDate = Date.parse(i.querySelector("pubDate")?.innerHTML);
+        var image = i.getElementsByTagName("media:thumbnail")[0]?.getAttribute("url");
+        if (!image) {
+          var desc = i.querySelector("description")?.innerHTML;
+          var html = new DOMParser().parseFromString(desc, "text/html");
+          image = html.querySelector("img")?.getAttribute("src");
+        }
         if (image) {
           items.push({
             pubDate: pubDate,
@@ -134,7 +139,6 @@ async function fetchWP(links) {
 
   // render to body
   for (var i of items) {
-    console.log(i);
     renderArticle(i, offsetDate(-24)); // recent
   }
 }
