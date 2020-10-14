@@ -1,0 +1,64 @@
+#splash {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 16rem;
+  font: 28px sans-serif;
+  color: #63899A;
+  text-align: center;
+  animation: fade 2s infinite;
+}
+@keyframes fade {
+  0%,100% { opacity: 0 }
+  50% { opacity: 1 }
+}
+body {
+  margin: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 2rem;
+  background: url(/assets/img/starfield.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+article {
+  background: #ECEFF1;
+  border-radius: 4px;
+  overflow: hidden;
+  font: 12px/1.1 system-ui, sans-serif;
+  text-align: right;
+}
+article.recent {
+  border: solid 2px cyan;
+}
+article img {
+  display: block;
+  min-height: 10rem;
+  max-height: 16rem;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 0 3px #B0BEC5;
+}
+article a {
+  text-decoration: none;
+  color: #63899A;
+}
+article a :hover {
+  color: #455A64;
+}
+article a h2 {
+  padding: 1rem 1rem;
+  text-align: left;
+  margin: 0;
+}
+article span {
+  display: inline-block;
+  padding: 0rem 1rem 0.5rem;
+  font: 9px system-ui, sans-serif;
+  color: #B0D0D0;
+}

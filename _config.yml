@@ -1,0 +1,8 @@
+theme: jekyll-theme-primer
+
+github: [metadata]
+
+title: Chion
+
+kramdown:
+  parse_block_html: true
