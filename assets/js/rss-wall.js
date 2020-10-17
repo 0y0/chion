@@ -77,13 +77,25 @@ function asyncFetch(items, url, cutoff) {
           if (!image) {
             var enc = i.getElementsByTagName("content:encoded")[0]?.innerHTML;
             var html = new DOMParser().parseFromString(enc, "text/html");
-            image = html.querySelector("img")?.getAttribute("src");
-            if (!image) image = html.querySelector("img")?.getAttribute("file");
+            for (var m of html.getElementsByTagName("img")) {
+              var src = m.getAttribute("src");
+              if (!src) src = m.getAttribute("file");
+              if (src && src.indexOf('emoji') < 0) {
+                image = src;
+                break;
+              }
+            }
           }
           if (!image) {
             var desc = i.querySelector("description")?.innerHTML;
             var html = new DOMParser().parseFromString(desc, "text/html");
-            image = html.querySelector("img")?.getAttribute("src");
+            for (var m of html.getElementsByTagName("img")) {
+              var src = m.getAttribute("src");
+              if (src && src.indexOf('emoji') < 0) {
+                image = src;
+                break;
+              }
+            }
           }
           if (image && image.indexOf('-thumb.') < 0) { // skip if no good picture
             items.push({

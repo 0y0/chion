@@ -17,7 +17,7 @@
 body {
   margin: 2rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 2rem;
   background: url(/assets/img/starfield.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -27,17 +27,17 @@ body {
 }
 article {
   background: #ECEFF1;
-  border-radius: 4px;
+  border-radius: 5px;
   overflow: hidden;
   font: 12px/1.1 system-ui, sans-serif;
   text-align: right;
+  max-width: 20rem;
 }
 article.recent {
   border: solid 2px cyan;
 }
 article img {
   display: block;
-  min-height: 10rem;
   max-height: 16rem;
   max-width: 100%;
   margin-left: auto;
