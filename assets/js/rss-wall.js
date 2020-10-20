@@ -101,7 +101,7 @@ function asyncFetch(items, url, cutoff) {
             items.push({
               pubDate: pubDate,
               title: formatTitle(i.querySelector("title")?.innerHTML),
-              image: image + '?w=400', // try to limit size if supported by source
+              image: image,
               link: i.querySelector("link")?.innerHTML,
             });
           }
