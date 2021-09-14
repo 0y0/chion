@@ -121,10 +121,11 @@ async function fetchRss(links, hours, local) {
   if (hours == null) hours = 7 * 24; // default to one week
 
   // load from RSS sources
+  var hash = window.location.hash;
   var lang = userLang();
   var items = [];
   for (var url of links) {
-    if (lang != 'ja' || url.indexOf('chionkoi') >= 0) { // limit JP users to one link
+    if (hash == '#all' || lang != 'ja' || url.indexOf('chionkoi') >= 0) { // limit JP users to one link
       var link = local ? url : proxyurl + url;
       await asyncFetch(items, link, hours == 0 ? null : offsetDate(-hours)); // no limit if hours is zero
     }
