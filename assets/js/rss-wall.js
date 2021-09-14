@@ -15,6 +15,13 @@ const htmlEntities = {
   apos: '\''
 };
 
+function userLang() {
+  var lang = window.navigator.language;
+  if (!lang) lang = window.navigator['browserLanguage'];
+  if (!lang) lang = 'en-US';
+  return lang.substring(0, 2);
+}
+
 function offsetDate(hours) {
   var now = new Date();
   now.setHours(now.getHours() + hours);
@@ -114,10 +121,13 @@ async function fetchRss(links, hours, local) {
   if (hours == null) hours = 7 * 24; // default to one week
 
   // load from RSS sources
+  var lang = userLang();
   var items = [];
   for (var url of links) {
-    var link = local ? url : proxyurl + url;
-    await asyncFetch(items, link, hours == 0 ? null : offsetDate(-hours)); // no limit if hours is zero
+    if (lang != 'ja' || url.indexOf('chionkoi') >= 0) { // limit JP users to one link
+      var link = local ? url : proxyurl + url;
+      await asyncFetch(items, link, hours == 0 ? null : offsetDate(-hours)); // no limit if hours is zero
+    }
   }
 
   // order from newest to oldest and remove duplicates
