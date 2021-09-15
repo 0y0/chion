@@ -61,11 +61,12 @@ function renderArticle(item, recent) {
 }
 
 function renderFooter() {
+  var lang = userLang();
   var hash = window.location.hash;
-  var rnd = Math.floor(Math.random() * 1e10);
+  var rnd = Math.floor(Math.random() * 1e12);
   var footer = document.getElementById('footer');
-  if (hash == '#all') 
-    footer.insertAdjacentHTML('beforeend', `<a href="?l=${rnd}">日本語のみ</a>`);
+  if ((hash == '' && lang != 'ja') || hash == '#all')
+    footer.insertAdjacentHTML('beforeend', `<a href="?l=${rnd}#ja">日本語のみ</a>`);
   else
     footer.insertAdjacentHTML('beforeend', `<a href="?l=${rnd}#all">International view</a>`);
 }
@@ -136,7 +137,7 @@ async function fetchRss(links, hours, local) {
   var lang = userLang();
   var items = [];
   for (var url of links) {
-    if (hash == '#all' || lang != 'ja' || url.indexOf('chionkoi') >= 0) { // limit JP users to one link
+    if (hash == '#all' || (hash == '' && lang != 'ja') || url.indexOf('chionkoi') >= 0) { // limit JP users to one link
       var link = local ? url : proxyurl + url;
       await asyncFetch(items, link, hours == 0 ? null : offsetDate(-hours)); // no limit if hours is zero
     }
