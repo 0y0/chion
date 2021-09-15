@@ -16,7 +16,7 @@ const htmlEntities = {
 };
 
 window.onhashchange = function() {
-  window.location.reload();
+  window.location.reload(false);
 }
 
 function userLang() {
