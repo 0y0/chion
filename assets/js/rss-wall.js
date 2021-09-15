@@ -56,7 +56,18 @@ function renderArticle(item, recent) {
       </a>
     </article>
   `;
-  document.body.insertAdjacentHTML('beforeend', html);
+  var rss = document.getElementById('rss');
+  rss.insertAdjacentHTML('beforeend', html);
+}
+
+function renderFooter() {
+  var hash = window.location.hash;
+  var rnd = Math.floor(Math.random() * 1e10);
+  var footer = document.getElementById('footer');
+  if (hash == '#all') 
+    footer.insertAdjacentHTML('beforeend', `<a href="?l=${rnd}">日本語のみ</a>`);
+  else
+    footer.insertAdjacentHTML('beforeend', `<a href="?l=${rnd}#all">International view</a>`);
 }
 
 function asyncFetch(items, url, cutoff) {
@@ -143,4 +154,5 @@ async function fetchRss(links, hours, local) {
   for (var i of items) {
     renderArticle(i, offsetDate(-24)); // highlight recent articles
   }
+  renderFooter();
 }
