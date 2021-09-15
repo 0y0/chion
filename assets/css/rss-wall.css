@@ -16,9 +16,8 @@
 }
 #footer {
   margin: 0 2rem 4rem 2rem;
-  width: 100%;
 }
-#footer a:link {
+#footer a {
   font: 10pt sans-serif;
   text-decoration: none;
   color: gray;

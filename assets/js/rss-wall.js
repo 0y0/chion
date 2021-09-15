@@ -15,6 +15,10 @@ const htmlEntities = {
   apos: '\''
 };
 
+window.onhashchange = function() {
+  window.location.reload();
+}
+
 function userLang() {
   var lang = window.navigator.language;
   if (!lang) lang = window.navigator['browserLanguage'];
@@ -63,12 +67,11 @@ function renderArticle(item, recent) {
 function renderFooter() {
   var lang = userLang();
   var hash = window.location.hash;
-  var rnd = Math.floor(Math.random() * 1e12);
   var footer = document.getElementById('footer');
   if ((hash == '' && lang != 'ja') || hash == '#all')
-    footer.insertAdjacentHTML('beforeend', `<a href="?l=${rnd}#ja">日本語のみ</a>`);
+    footer.insertAdjacentHTML('beforeend', `<a href="#ja">日本語のみ</a>`);
   else
-    footer.insertAdjacentHTML('beforeend', `<a href="?l=${rnd}#all">International view</a>`);
+    footer.insertAdjacentHTML('beforeend', `<a href="#all">International view</a>`);
 }
 
 function asyncFetch(items, url, cutoff) {
