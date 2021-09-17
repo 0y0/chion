@@ -133,14 +133,19 @@ function asyncFetch(items, url, cutoff) {
 }
 
 async function fetchRss(links, hours, local) {
+  // splash message
+  var lang = userLang();
+  var hash = window.location.hash;
+  var global = (hash == '#all' || (hash == '' && lang != 'ja'));
+  var splash = document.getElementById("splash");
+  splash.innerHTML = (global ? 'Loading' : '読み込み中');
+
   if (hours == null) hours = 7 * 24; // default to one week
 
   // load from RSS sources
-  var hash = window.location.hash;
-  var lang = userLang();
   var items = [];
   for (var url of links) {
-    if (hash == '#all' || (hash == '' && lang != 'ja') || url.indexOf('chionkoi') >= 0) { // limit JP users to one link
+    if (global || url.indexOf('chionkoi') >= 0) { // limit JP users to one link
       var link = local ? url : proxyurl + url;
       await asyncFetch(items, link, hours == 0 ? null : offsetDate(-hours)); // no limit if hours is zero
     }
@@ -151,8 +156,7 @@ async function fetchRss(links, hours, local) {
   items = items.filter((a, i, self) => i === self.findIndex((t) => (t.title === a.title)));
 
   // stop splash
-  var splash = document.getElementById("splash");
-  splash.parentNode.removeChild(splash);
+  splash.innerHTML = '';
 
   // render to body
   for (var i of items) {
