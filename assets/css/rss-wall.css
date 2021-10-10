@@ -37,6 +37,7 @@ body {
   background-size: cover;
 }
 article {
+  position: relative;
   background: #ECEFF1;
   border-radius: 5px;
   overflow: hidden;
@@ -56,6 +57,9 @@ article img {
   box-shadow: 0 0 3px #B0BEC5;
 }
 article a {
+  display: block;
+  width: 100%;
+  height: 100%;
   text-decoration: none;
   color: #63899A;
 }
