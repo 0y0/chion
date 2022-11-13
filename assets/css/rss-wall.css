@@ -10,17 +10,17 @@
   margin: auto;
   width: 16rem;
   font: 28px sans-serif;
-  color: #63899A;
+  color: white;
   text-align: center;
   animation: fade 2s infinite;
 }
 #footer {
-  margin: 0 2rem 4rem 2rem;
+  margin: 0 2rem 2rem 2rem;
 }
 #footer a {
   font: 10pt sans-serif;
   text-decoration: none;
-  color: gray;
+  color: white;
 }
 #rss {
   margin: 2rem;
@@ -30,7 +30,7 @@
   background-color: transparent;
 }
 body {
-  background: url(/assets/img/starfield.jpg) no-repeat center center fixed;
+  background: url(/assets/img/backdrop.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
