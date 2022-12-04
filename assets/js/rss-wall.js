@@ -1,3 +1,4 @@
+// CORS proxy
 const proxyurl = "https://k34f75nkq2.onrender.com/";
 
 const htmlEntities = {
