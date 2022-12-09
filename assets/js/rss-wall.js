@@ -1,5 +1,6 @@
 // CORS proxy
-const proxyurl = "https://k34f75nkq2.onrender.com/";
+//const proxyurl = "https://k34f75nkq2.onrender.com/";
+const proxyurl = "https://corsproxy.io/?";
 
 const htmlEntities = {
   nbsp: ' ',
