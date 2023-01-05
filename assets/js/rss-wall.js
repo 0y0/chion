@@ -1,6 +1,6 @@
 // CORS proxy
 //const proxyurl = "https://k34f75nkq2.onrender.com/";
-const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
+const proxyurl = "https://api.codetabs.com/v1/proxy/?quest=";
 const proxyurl_ja = "https://corsproxy.io/?";
 
 const htmlEntities = {
