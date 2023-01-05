@@ -1,6 +1,7 @@
 // CORS proxy
 //const proxyurl = "https://k34f75nkq2.onrender.com/";
-const proxyurl = "https://corsproxy.io/?";
+const proxyurl = "https://api.codetabs.com/v1/proxy?quest=";
+const proxyurl_ja = "https://corsproxy.io/?";
 
 const htmlEntities = {
   nbsp: ' ',
@@ -148,7 +149,7 @@ async function fetchRss(links, hours, local) {
   var items = [];
   for (var url of links) {
     if (global || url.indexOf('chionkoi') >= 0) { // limit JP users to one link
-      var link = local ? url : proxyurl + url;
+      var link = local ? url : (global ? proxyurl : proxyurl_ja) + url;
       await asyncFetch(items, link, hours == 0 ? null : offsetDate(-hours)); // no limit if hours is zero
     }
   }
