@@ -23,10 +23,10 @@
   color: white;
 }
 #rss {
-  margin: 2rem;
+  margin: 1rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 0.6fr));
-  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 0.49fr));
+  grid-gap: 1.5rem;
   background-color: transparent;
 }
 body {
