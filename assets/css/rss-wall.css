@@ -25,7 +25,7 @@
 #rss {
   margin: 2rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 0.6fr));
   grid-gap: 2rem;
   background-color: transparent;
 }
