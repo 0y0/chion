@@ -23,7 +23,7 @@
   color: white;
 }
 #rss {
-  margin: 1rem;
+  margin: 1rem 0.5rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(200px, 30%), 1fr));
   grid-gap: 1.5rem;
@@ -41,7 +41,7 @@ article {
   background: #ECEFF1;
   border-radius: 5px;
   overflow: hidden;
-  font: clamp(10px, 2vw, 12px)/1.1 system-ui, sans-serif;
+  font: 65%/1.1 system-ui, sans-serif;
   text-align: right;
   max-width: fit-content;
 }
