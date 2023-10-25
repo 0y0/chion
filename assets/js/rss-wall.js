@@ -143,6 +143,8 @@ async function fetchRss(links, hours, local) {
   var splash = document.getElementById("splash");
   splash.innerHTML = (global ? 'Loading' : '読み込み中');
 
+  if (global) location.href = "https://chionslovestory.wixsite.com/japanfunwalker/blog"; // redirect international
+
   if (hours == null) hours = 7 * 24; // default to one week
 
   // load from RSS sources
