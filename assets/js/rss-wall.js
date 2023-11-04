@@ -35,6 +35,16 @@ function offsetDate(hours) {
   return now;
 }
 
+function redirectSite() {
+  var lang = userLang();
+  var hash = window.location.hash;
+  var global = (hash == '#all' || (hash == '' && lang != 'ja'));
+  if (global)
+    location.href = "https://chionslovestory.wixsite.com/japanfunwalker/blog"; // redirect international
+  else
+    location.href = "https://chionslovestory.wixsite.com/chionslovestory"; // redirect Japan
+}
+
 function formatTitle(str) {
   str = str.replace(/\&([^;]+);/g, function (entity, entityCode) {
     var match;
@@ -142,11 +152,6 @@ async function fetchRss(links, hours, local) {
   var global = (hash == '#all' || (hash == '' && lang != 'ja'));
   var splash = document.getElementById("splash");
   splash.innerHTML = (global ? 'Loading' : '読み込み中');
-
-  if (global)
-    location.href = "https://chionslovestory.wixsite.com/japanfunwalker/blog"; // redirect international
-  else
-    location.href = "https://chionslovestory.wixsite.com/chionslovestory"; // redirect Japan
 
   if (hours == null) hours = 7 * 24; // default to one week
 
